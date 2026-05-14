@@ -84,4 +84,8 @@ mvn test
 - `src/javaweb11/DBUtil.java`
 - `sxdx_employee_web/src/main/java/com/sxdx/util/DBUtil.java`
 
+建表脚本：
+
+- `employee.sql`（员工表：员工id、姓名、密码、年龄、工资）
+
 如需本地运行，请根据实际环境调整数据库地址、用户名和密码。

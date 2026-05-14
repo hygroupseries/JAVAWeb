@@ -40,15 +40,22 @@ public class RegisterServlet extends HttpServlet {
             
             PrintWriter out = resp.getWriter();
             if (rows > 0) {
-                // 注册成功，显示提示并 3 秒后跳转到登录页
-                out.println("<script>alert('注册成功！3 秒后跳转到登录页面...'); window.location.href='login.html';</script>");
+                String loginUrl = req.getContextPath() + "/login.html";
+                // 注册成功，3 秒后定时刷新到登录页
+                out.println("<!DOCTYPE html><html><head><meta charset='UTF-8'>");
+                out.println("<meta http-equiv='refresh' content='3;url=" + loginUrl + "'>");
+                out.println("<title>注册成功</title></head><body style='text-align:center;padding-top:100px;font-family:Microsoft YaHei;'>");
+                out.println("<h2>✅ 注册成功！</h2>");
+                out.println("<p>3 秒后自动跳转到登录页面...</p>");
+                out.println("<p>如果没有跳转，请 <a href='" + loginUrl + "'>点击这里</a></p>");
+                out.println("</body></html>");
             } else {
                 out.println("<script>alert('注册失败，请重试'); history.back();</script>");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             PrintWriter out = resp.getWriter();
-            out.println("<script>alert('系统错误：' + e.getMessage()); history.back();</script>");
+            out.println("<script>alert('系统错误，请稍后重试'); history.back();</script>");
         } finally {
             try { if (pstmt != null) pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }
             try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
