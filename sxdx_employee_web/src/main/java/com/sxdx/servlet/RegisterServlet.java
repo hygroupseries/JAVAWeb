@@ -40,13 +40,14 @@ public class RegisterServlet extends HttpServlet {
             
             PrintWriter out = resp.getWriter();
             if (rows > 0) {
+                String loginUrl = req.getContextPath() + "/login.html";
                 // 注册成功，3 秒后定时刷新到登录页
                 out.println("<!DOCTYPE html><html><head><meta charset='UTF-8'>");
-                out.println("<meta http-equiv='refresh' content='3;url=login.html'>");
+                out.println("<meta http-equiv='refresh' content='3;url=" + loginUrl + "'>");
                 out.println("<title>注册成功</title></head><body style='text-align:center;padding-top:100px;font-family:Microsoft YaHei;'>");
                 out.println("<h2>✅ 注册成功！</h2>");
                 out.println("<p>3 秒后自动跳转到登录页面...</p>");
-                out.println("<p>如果没有跳转，请 <a href='login.html'>点击这里</a></p>");
+                out.println("<p>如果没有跳转，请 <a href='" + loginUrl + "'>点击这里</a></p>");
                 out.println("</body></html>");
             } else {
                 out.println("<script>alert('注册失败，请重试'); history.back();</script>");

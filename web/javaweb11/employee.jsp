@@ -1,6 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="javaweb11.Employee" %>
 <%
+    if ("true".equals(request.getParameter("logout"))) {
+        session.invalidate();
+        response.sendRedirect("login.html");
+        return;
+    }
+
     Employee user = (Employee) session.getAttribute("currentUser");
     if (user == null) {
         response.sendRedirect("login.html");
@@ -56,7 +62,7 @@
         <p style="color: #999; font-size: 12px; margin-top: 10px;">🎬 工作之余，看段视频放松一下吧</p>
     </div>
     <div class="logout">
-        <a href="login.html">退出登录</a>
+        <a href="employee.jsp?logout=true">退出登录</a>
     </div>
 </div>
 </body>
