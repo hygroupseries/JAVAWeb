@@ -56,7 +56,7 @@
         <p style="color: #999; font-size: 12px; margin-top: 10px;">🎬 工作之余，看段视频放松一下吧</p>
     </div>
     <div class="logout">
-        <a href="../index.html">退出登录</a>
+        <a href="login.html">退出登录</a>
     </div>
 </div>
 </body>
