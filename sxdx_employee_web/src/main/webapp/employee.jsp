@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.sxdx.entity.Employee" %>
 <%
-    if ("true".equals(request.getParameter("logout"))) {
+    if ("POST".equalsIgnoreCase(request.getMethod()) && "true".equals(request.getParameter("logout"))) {
         session.invalidate();
         response.sendRedirect("login.html");
         return;
@@ -31,7 +31,7 @@
         .media-container { text-align: center; margin-top: 30px; }
         .media-container video { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .logout { text-align: center; margin-top: 30px; }
-        .logout a { color: #ff4d4f; text-decoration: none; font-weight: bold; }
+        .logout button { background: none; border: none; color: #ff4d4f; text-decoration: none; font-weight: bold; font-size: 16px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -64,7 +64,10 @@
         <p style="color: #999; font-size: 12px; margin-top: 10px;">* 工作之余，看段视频放松一下吧</p>
     </div>
     <div class="logout">
-        <a href="employee.jsp?logout=true">退出登录</a>
+        <form action="employee.jsp" method="post">
+            <input type="hidden" name="logout" value="true">
+            <button type="submit">退出登录</button>
+        </form>
     </div>
 </div>
 </body>
