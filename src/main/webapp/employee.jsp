@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.sxdx.entity.Employee" %>
+<%@ page import="javaweb11.Employee" %>
 <%
-    // 检查是否登录
     Employee user = (Employee) session.getAttribute("currentUser");
     if (user == null) {
         response.sendRedirect("login.html");

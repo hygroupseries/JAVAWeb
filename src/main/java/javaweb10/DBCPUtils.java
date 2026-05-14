@@ -1,6 +1,6 @@
 package javaweb10;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -30,7 +30,7 @@ public class DBCPUtils {
         ds.setUsername(p.getProperty("username"));
         ds.setPassword(p.getProperty("password"));
         ds.setInitialSize(5);
-        ds.setMaxActive(5);
+        ds.setMaxTotal(5);
     }
     //提供获取连接的方法
     private static Connection conn;
