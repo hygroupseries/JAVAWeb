@@ -1,6 +1,6 @@
 package javaweb09;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,7 +47,7 @@ public class DBCPUtils {
         //设置连接池的初始连接数
         ds.setInitialSize(5);
         //设置连接池的最大连接数
-        ds.setMaxActive(5);
+        ds.setMaxTotal(5);
 
     }
 
