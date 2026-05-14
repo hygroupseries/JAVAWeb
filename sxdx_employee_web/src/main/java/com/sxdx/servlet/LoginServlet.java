@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                 out.println("<!DOCTYPE html><html><head><meta charset='UTF-8'>");
                 out.println("<meta http-equiv='refresh' content='3;url=" + employeeUrl + "'>");
                 out.println("<title>登录成功</title></head><body style='text-align:center;padding-top:100px;font-family:Microsoft YaHei;'>");
-                out.println("<h2>✅ 登录成功！欢迎 " + escapeHtml(emp.getEmpName()) + "</h2>");
+                out.println("<h2>✅ 登录成功！</h2>");
                 out.println("<p>3 秒后自动进入员工主页...</p>");
                 out.println("<p>如果没有跳转，请 <a href='" + employeeUrl + "'>点击这里</a></p>");
                 out.println("</body></html>");
@@ -75,15 +75,4 @@ public class LoginServlet extends HttpServlet {
         doPost(req, resp);
     }
 
-    private String escapeHtml(String value) {
-        if (value == null) {
-            return "";
-        }
-        return value
-                .replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("\"", "&quot;")
-                .replace("'", "&#39;");
-    }
 }

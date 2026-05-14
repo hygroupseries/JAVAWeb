@@ -1,16 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.sxdx.entity.Employee" %>
 <%
-    if ("POST".equalsIgnoreCase(request.getMethod()) && "true".equals(request.getParameter("logout"))) {
-        session.invalidate();
-        response.sendRedirect("login.html");
-        return;
-    }
-
     // 检查是否登录
     Employee user = (Employee) session.getAttribute("currentUser");
     if (user == null) {
         response.sendRedirect("login.html");
+        return;
+    }
+
+    String logoutToken = (String) session.getAttribute("logoutToken");
+    if (logoutToken == null) {
+        logoutToken = java.util.UUID.randomUUID().toString();
+        session.setAttribute("logoutToken", logoutToken);
+    }
+    if ("POST".equalsIgnoreCase(request.getMethod()) && "true".equals(request.getParameter("logout"))) {
+        String requestToken = request.getParameter("logoutToken");
+        if (logoutToken.equals(requestToken)) {
+            session.invalidate();
+            response.sendRedirect("login.html");
+        } else {
+            response.sendError(403, "Invalid logout request");
+        }
         return;
     }
 %>
@@ -66,6 +76,7 @@
     <div class="logout">
         <form action="employee.jsp" method="post">
             <input type="hidden" name="logout" value="true">
+            <input type="hidden" name="logoutToken" value="<%= logoutToken %>">
             <button type="submit">退出登录</button>
         </form>
     </div>
