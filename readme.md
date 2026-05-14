@@ -8,7 +8,7 @@
 
 ---
 
-## 2. 根工程目录结构（`/home/runner/work/JAVAWeb/JAVAWeb`）
+## 2. 根工程目录结构（`<project-root>`）
 
 - `pom.xml`：根 Maven 配置，打包类型为 `war`。
 - `src/`：主要 Java 源码与配置（当前结构偏教学示例风格）。
@@ -62,13 +62,13 @@
 
 ### 根工程
 ```bash
-cd /home/runner/work/JAVAWeb/JAVAWeb
+cd <project-root>
 mvn test
 ```
 
 ### 子工程
 ```bash
-cd /home/runner/work/JAVAWeb/JAVAWeb/sxdx_employee_web
+cd <project-root>/sxdx_employee_web
 mvn test
 ```
 
