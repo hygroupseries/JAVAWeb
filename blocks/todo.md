@@ -1,0 +1,13 @@
+- [ ] 1. 创建数据库和员工表 (MySQL)
+- [ ] 2. 创建项目目录结构 (web, WEB-INF, src 等)
+- [ ] 3. 编写实体类 Employee.java
+- [ ] 4. 编写数据库工具类 DBUtil.java
+- [ ] 5. 编写注册 Servlet (RegisterServlet.java)
+- [ ] 6. 编写登录 Servlet (LoginServlet.java)
+- [ ] 7. 创建注册页面 (register.html)
+- [ ] 8. 创建登录页面 (login.html)
+- [ ] 9. 创建员工主页 (employee.jsp)
+- [ ] 10. 配置 web.xml
+- [ ] 11. 创建 pom.xml (Maven 依赖)
+- [ ] 12. 初始化数据库数据
+- [ ] 13. 总结交付
