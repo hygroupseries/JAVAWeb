@@ -100,13 +100,15 @@ CREATE TABLE IF NOT EXISTS employee (
 - 章节 11 示例：`src/main/java/javaweb11/DBUtil.java`
 - 子工程示例：`sxdx_employee_web/src/main/java/com/sxdx/util/DBUtil.java`
 
-推荐配置示例：
+推荐配置示例（建议使用环境变量或 JVM 参数传入账号密码，避免明文提交）：
 
 ```
 url=jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
-username=root
-password=你的密码
+username=${DB_USER}
+password=${DB_PASSWORD}
 ```
+
+> 运行前请设置 `DB_USER` / `DB_PASSWORD`（或使用 `-Ddb.user` / `-Ddb.password`）。
 
 ---
 
