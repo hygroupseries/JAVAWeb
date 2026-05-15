@@ -35,14 +35,14 @@ public class DBCPUtils {
             e.printStackTrace();
         }
         //驱动
-        String driver = p.getProperty("driver");
+        String driver = getSetting("DB_DRIVER", "db.driver", p.getProperty("driver"));
         ds.setDriverClassName(driver);
         //url
-        ds.setUrl(p.getProperty("url"));
+        ds.setUrl(getSetting("DB_URL", "db.url", p.getProperty("url")));
         //用户名
-        ds.setUsername(p.getProperty("username"));
+        ds.setUsername(getSetting("DB_USER", "db.user", p.getProperty("username")));
         //密码
-        ds.setPassword(p.getProperty("password"));
+        ds.setPassword(getSetting("DB_PASSWORD", "db.password", p.getProperty("password")));
 
         //设置连接池的初始连接数
         ds.setInitialSize(5);
@@ -61,6 +61,17 @@ public class DBCPUtils {
         } finally {
             return conn;
         }
+    }
+
+    private static String getSetting(String envKey, String propertyKey, String fallback) {
+        String value = System.getenv(envKey);
+        if (value == null || value.isBlank()) {
+            value = System.getProperty(propertyKey);
+        }
+        if (value == null || value.isBlank()) {
+            return fallback;
+        }
+        return value;
     }
 
 //    public static void main(String[] args) {
