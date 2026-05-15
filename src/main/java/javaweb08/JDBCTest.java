@@ -9,17 +9,16 @@ public class JDBCTest {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //1.注册驱动
         //8.0以上
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         //2.获取数据库连接
         /*
             1)url?user=x&password=x
             2)url user password
          */
-        String url = "jdbc:mysql://localhost:3306/sxdxjavaweb";
-        String user = "root";
-        String password = "root";
+        String url = "jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
+        String user = requireSetting("DB_USER", "db.user");
+        String password = requireSetting("DB_PASSWORD", "db.password");
         Connection conn = DriverManager.getConnection
                 (url,user,password);
 //        System.out.println(conn);
@@ -71,5 +70,17 @@ public class JDBCTest {
         statement.close();
         conn.close();
 
+    }
+
+    private static String requireSetting(String envKey, String propertyKey) {
+        String value = System.getenv(envKey);
+        if (value == null || value.isBlank()) {
+            value = System.getProperty(propertyKey);
+        }
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException(
+                    "Missing database credential. Set " + envKey + " or -D" + propertyKey + ".");
+        }
+        return value;
     }
 }
