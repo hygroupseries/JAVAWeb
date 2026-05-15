@@ -9,17 +9,16 @@ public class JDBCTest {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         //1.注册驱动
         //8.0以上
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         //2.获取数据库连接
         /*
             1)url?user=x&password=x
             2)url user password
          */
-        String url = "jdbc:mysql://localhost:3306/sxdxjavaweb";
+        String url = "jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
         String user = "root";
-        String password = "root";
+        String password = "050522";
         Connection conn = DriverManager.getConnection
                 (url,user,password);
 //        System.out.println(conn);

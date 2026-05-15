@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DBUtil {
     private static final String URL = "jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
     private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "050522";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     static {
         try {

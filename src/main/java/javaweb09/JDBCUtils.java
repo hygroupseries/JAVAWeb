@@ -14,10 +14,10 @@ public class JDBCUtils {
 
     public static Connection getConn(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/sxdxjavaweb";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
             String user = "root";
-            String password = "root";
+            String password = "050522";
             conn = DriverManager.getConnection
                     (url,user,password);
 

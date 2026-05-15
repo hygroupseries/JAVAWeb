@@ -16,9 +16,9 @@ public class JDBCUtils {
     private static Connection conn;
     public static Connection getConn(){
         try{
-            String url = "jdbc:mysql://localhost:3306/sxdxjavaweb";
+            String url = "jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
             String user = "root";
-            String password = "root";
+            String password = "050522";
             conn = DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {
             e.printStackTrace();

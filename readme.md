@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS employee (
 ```
 url=jdbc:mysql://localhost:3306/sxdxjavaweb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
 username=root
-password=你的密码
+password=050522
 ```
 
 ---
