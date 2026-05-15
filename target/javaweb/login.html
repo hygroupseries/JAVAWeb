@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工登录</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<div class="auth-page">
+    <div class="auth-card">
+        <div class="auth-header">
+            <p>Employee Portal</p>
+            <h1>员工登录</h1>
+            <span>安全访问员工管理系统</span>
+        </div>
+        <form action="login" method="post">
+            <div class="form-field">
+                <label for="empId">员工 ID</label>
+                <input id="empId" type="text" name="empId" required placeholder="请输入员工 ID" autocomplete="username">
+            </div>
+            <div class="form-field">
+                <label for="empPassword">密码</label>
+                <input id="empPassword" type="password" name="empPassword" required placeholder="请输入密码" autocomplete="current-password">
+            </div>
+            <button class="btn" type="submit">安全登录</button>
+        </form>
+        <div class="auth-footer">
+            没有账号？<a href="register.html">去注册</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
